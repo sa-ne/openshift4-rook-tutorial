@@ -11,6 +11,7 @@ We will use the Rook operator to deploy Ceph. The following yaml files are used 
 ```console
 $ cd cluster/examples/kubernetes/ceph
 $ oc create -f common.yaml
+$ oc create -f crds.yaml
 ```
 
 Before proceeding we need to create EBS volumes for Ceph to use. These volumes will be presented as raw block devices to the nodes. My reference cluster is deployed on AWS and uses 3x m5.2xlarge worker nodes. I added 1x400 EBS volume to each node. For other platforms, just ensure raw (unformatted/unpartitioned) devices are presented to the nodes you want to deploy Ceph on. If you opt for the default installation, discovery pods will be deployed to automatically enumerate available storage.
